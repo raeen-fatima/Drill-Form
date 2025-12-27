@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Mini Task — User Data Form + MongoDB
 
-## Getting Started
+A lightweight full-stack mini task built with **Next.js (App Router)** and **MongoDB (Mongoose)** to practice API handling, database integration, and frontend-backend data flow.
 
-First, run the development server:
+##  Features
+- Collects **Username, GitHub link & Portfolio link**
+- Sends data to a **Next.js API Route**
+- Stores data in **MongoDB using Mongoose**
+- Shows saved data on frontend after successful submission
+- Console logging for debugging practice
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+##  Tech Stack
+- **Next.js 16.1.1 (Turbopack)**
+- **React (Client Component)**
+- **MongoDB Atlas**
+- **Mongoose**
+- **Tailwind CSS**
+
+---
+
+##  Project Structure
+```
+/app/form/page.jsx           → Frontend form UI
+/app/api/userdata/route.js   → API route to receive & save data
+/lib/db.js                  → MongoDB connection setup
+/model/Drill.js             → Mongoose schema & model
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  Setup Instructions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️ Install dependencies
+```sh
+npm install mongoose
+```
 
-## Learn More
+### 2️ Add environment variable in `.env`
+```
+MONGODB_URI = <Your MongoDB Atlas Connection String>
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3️ Run the project
+```sh
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##  API Route Example (`POST`)
+```js
+export async function POST(req) {
+  await connectDB();
+  const data = await req.json();
+  const saved = await Drill.create(data);
+  return NextResponse.json({ success: true, user: saved });
+}
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+##  What This Task Helps You Practice
+- API request handling in Next.js
+- JSON parsing
+- Database insert operations
+- State update after API success
+- Debugging using `console.log`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+##  Notes
+- Make sure you're reading the correct response key (`result.user`)
+- This project is created for learning and interview preparation.
+
+---
+
+##  Connect With Me
+- **GitHub:** `github.com/<your_username>`
+- **Portfolio:** `<your_portfolio_link>`
+
+---
+
+###  Built by Raeen Fatima 
+*Keep practicing, keep improving, Inshallah 🚀*
