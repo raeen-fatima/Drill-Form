@@ -77,8 +77,8 @@ export async function POST(req) {
 ---
 
 ##  Connect With Me
-- **Linkedin:** `https://www.linkedin.com/in/raeen-saifi-a8b6172a8`
-- **Portfolio:** `<https://raeen-s-portfolio.vercel.app/>`
+- **Linkedin:** https://www.linkedin.com/in/raeen-saifi-a8b6172a8
+- **Portfolio:** https://raeen-s-portfolio.vercel.app/
 
 ---
 
